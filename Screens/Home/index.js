@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import TweetsCard from './component/TweetsCard'
+import RateView from '../../Components/RateView'
 
 type Props = {};
 export default class Home extends Component<Props> {
@@ -32,10 +33,31 @@ export default class Home extends Component<Props> {
     }
   };
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      toggleRateView: false,
+      rateValue: 5
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <TweetsCard />
+        <TweetsCard
+          onPressRate={() => {
+            this.setState({ toggleRateView: true, rateValue:1 })
+          }}
+        />
+        <RateView
+          rateValue={this.state.rateValue}
+          onPressRateValue={(value) => {
+            this.setState({rateValue:value})
+          }}
+          toggle={this.state.toggleRateView}
+          onPressToggle={() => {
+            this.setState({ toggleRateView: false })
+          }} />
       </View>
     );
   }

@@ -43,18 +43,23 @@ const TweetsCard = props => (
       <View style={styles.header}>
         <Image source={donald} style={styles.profileImage} />
         <View>
-        <Text style={styles.userTitle}>Donald J. Trump</Text>
-        <Text style={styles.userSubtitle}>@realDonaldTrump</Text>
+          <Text style={styles.userTitle}>Donald J. Trump</Text>
+          <Text style={styles.userSubtitle}>@realDonaldTrump</Text>
         </View>
       </View>
-      <Text style={styles.status}>Congratulations to Patrick Reed on his 
-        great and courageous MASTERS win! When Patrick 
-        had his amazing win at Doral 5 years ago, 
-        people saw his great talent, and a 
-        bright future ahead. 
+      <Text style={styles.status}>Congratulations to Patrick Reed on his
+        great and courageous MASTERS win! When Patrick
+        had his amazing win at Doral 5 years ago,
+        people saw his great talent, and a
+        bright future ahead.
         Now he is the Masters Champion!
       </Text>
-      <Text style={styles.date}>9:12 AM - 4 Feb 2017</Text>
+      <View style={styles.bottomViewStyle}>
+        <Text style={styles.date}>9:12 AM - 4 Feb 2017</Text>
+        <TouchableOpacity style={styles.rateButton} onPress={() => {
+          props.onPressRate()
+        }}><Text>Rate</Text></TouchableOpacity>
+      </View>
     </View>
   </View>
 );
@@ -84,24 +89,41 @@ const styles = StyleSheet.create({
   },
   userSubtitle: {
     fontSize: 12,
-    fontWeight:'400',
-    color:'grey',
-    marginLeft:10
+    fontWeight: '400',
+    color: 'grey',
+    marginLeft: 10
   },
   header: {
     flexDirection: 'row',
   },
   status: {
     fontSize: 14,
-    fontWeight:'400',
+    fontWeight: '400',
     marginTop: 20
   },
   date: {
     fontSize: 13,
-    color:'rgb(80,80,80)',
-    marginTop:10,
+    color: 'rgb(80,80,80)',
+    alignContent:'center',
+  },
+  bottomViewStyle: {
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    marginTop:10
+  },
+  rateButton:{
+    alignItems:'center',
+    justifyContent:'center',
+    height:30,
+    borderWidth:1,
+    padding:5,
+    paddingHorizontal:10,
+    borderColor:'grey',
+    backgroundColor:'rgb(38,162,239)',
+    borderRadius:5
+  },
 
-  }
 });
 
 export default TweetsCard;
