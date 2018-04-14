@@ -88,14 +88,14 @@ const styles = StyleSheet.create({
     height:24,
     width:24,
     borderRadius:12,
-    backgroundColor:'yellow'
+    backgroundColor:'white'
   },
   emptyBubble: {
     height:20,
     width:20,
     borderRadius:10,
     borderWidth:1,
-    borderColor:'yellow'
+    borderColor:'white'
   },
   titles: {
     fontSize:16,

@@ -1,5 +1,5 @@
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import IconAwesome from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
 import {
   StyleSheet,
@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontSize: 12,
-    paddingBottom: 15,
     fontWeight: '900',
   },
   indicatorStyle: {
@@ -28,11 +27,9 @@ export default TabNavigator({
     screen: HomeTabNavigator,
     key: 'HomeTabNavigator',
     navigationOptions: {
-        tabBarLabel:"HOME",
         tabBarIcon: ({ focused }) => (
-          focused ?
-          <View style={{backgroundColor: 'white', marginTop: 75, width: 40, height: 2}}/>:
-          <View style={{backgroundColor: 'transparent'}}/>
+          focused ?  <IconAwesome name='home' size={25} color='white' /> :         
+           <IconAwesome name='home' size={25} color='white' style={{opacity:0.7}}/>
         ),
     }
   },
@@ -40,11 +37,10 @@ export default TabNavigator({
     screen: RankTabNavigator,
     key: 'RankTabNavigator',
     navigationOptions: {
-        tabBarLabel:"Rank",
         tabBarIcon: ({ focused }) => (
-          focused ?
-          <View style={{backgroundColor: 'white', marginTop: 75, width: 45, height: 2}}/>:
-          <View style={{backgroundColor: 'transparent'}}/>
+          focused ?  <IconAwesome name='level-up' size={25} color='white' /> :         
+          <IconAwesome name='level-up' size={25} color='white' style={{opacity:0.7}}/>
+
           
         ),
     }
@@ -53,12 +49,9 @@ export default TabNavigator({
     screen: DownRankTabNavigator,
     key: 'DownRankTabNavigator',
     navigationOptions: {
-        tabBarLabel:"Down Rank",
         tabBarIcon: ({ focused }) => (
-          focused ?
-          <View style={{backgroundColor: 'white', marginTop: 75, width: 50, height: 2}}/>:
-          <View style={{backgroundColor: 'transparent'}}/>
-          
+          focused ?  <IconAwesome name='level-down' size={25} color='white' /> :         
+          <IconAwesome name='level-down' size={25} color='white' style={{opacity:0.7}}/>
         ),
     }
   }
