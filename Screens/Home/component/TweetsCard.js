@@ -58,7 +58,7 @@ const TweetsCard = props => (
         <Text style={styles.date}>9:12 AM - 4 Feb 2017</Text>
         <TouchableOpacity style={styles.rateButton} onPress={() => {
           props.onPressRate()
-        }}><Text>Rate</Text></TouchableOpacity>
+        }}><Text style={{color:'white',fontWeight:'600'}}>Rate</Text></TouchableOpacity>
       </View>
     </View>
   </View>
@@ -119,9 +119,9 @@ const styles = StyleSheet.create({
     borderWidth:1,
     padding:5,
     paddingHorizontal:10,
-    borderColor:'grey',
+    borderColor:'white',
     backgroundColor:'rgb(38,162,239)',
-    borderRadius:5
+    borderRadius:5,
   },
 
 });

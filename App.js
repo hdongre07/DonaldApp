@@ -6,37 +6,33 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
+  Platform
 } from 'react-native';
 import TabNavigator from './TabNavigator'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { Provider } from 'react-redux'
+import { rootSaga } from './sagas'
+import homeReducer from './Screens/Home/home.reducer'
+
+const reducer = combineReducers({home: homeReducer})
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+export const store = createStore(
+  reducer,
+  applyMiddleware(sagaMiddleware)
+)
+sagaMiddleware.run(rootSaga)
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <TabNavigator />
+      <Provider store={store}>
+        <TabNavigator />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
